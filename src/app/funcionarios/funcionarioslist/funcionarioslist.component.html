@@ -1,0 +1,45 @@
+<div class="main">
+    
+    <table class="custom-table">
+        <thead>
+            <tr>
+                <th>#ID</th>
+                <th>Nome</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let funcionario of lista; let i = index">
+                <tr class="table-row">
+                    <th scope="row">{{ funcionario.id }}</th>
+                    <td>{{ funcionario.nome }}</td>
+
+                    <td> <button class="btn btn-primary" (click)="editar(modal1, funcionario, i)">Editar</button>
+                        <button class="btn btn-danger" (click)="deleteFuncionario(funcionario.id)">Excluir</button>
+                    </td>
+
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
+
+
+    <ng-template #modal1 let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title">Modal title</h4>
+          <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+        </div>
+        <div class="modal-body">
+    
+          <app-funcionariosdetails [funcionario]="funcionarioSelecionadoParaEdicao"
+            (retorno)="addOuEditarPessoa($event)"></app-funcionariosdetails>
+    
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+        </div>
+      </ng-template>
+
+   
+
+</div>

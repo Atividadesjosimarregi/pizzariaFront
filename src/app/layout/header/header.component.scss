@@ -1,0 +1,46 @@
+/* Estilo para o cabeçalho */
+.pizzeria-header {
+    background-color: #FFA500; /* Cor de laranja como exemplo, escolha uma que combine com a sua pizzaria */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+/* Estilo para o logo */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 50px; /* Ajuste o tamanho do logo conforme necessário */
+    height: 50px;
+    margin-right: 10px;
+}
+
+.logo h1 {
+    font-size: 24px;
+    color: #fff;
+}
+
+/* Estilo para a navegação */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav li {
+    font-size: 18px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #FF8C00; /* Cor ligeiramente mais escura ao passar o mouse */
+}
