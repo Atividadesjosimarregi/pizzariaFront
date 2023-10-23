@@ -27,9 +27,9 @@ export class FuncionarioslistComponent {
 
 
 
-    abrirModal(abc : any){
-      this.modalService.open(abc, {size: 'lg'});
-    }
+      abrirModal(abc : any){
+        this.modalService.open(abc, {size: 'lg'});
+      }
 
     addNaLista(funcionario: Funcionario){
 
@@ -104,6 +104,7 @@ export class FuncionarioslistComponent {
           () => {
             
             this.list();
+            
           },
           (error) => {
             console.error('Erro ao excluir a pessoa.', error);
@@ -111,6 +112,7 @@ export class FuncionarioslistComponent {
           }
         );
       }
+
     }
     
 

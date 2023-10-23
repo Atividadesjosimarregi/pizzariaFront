@@ -23,19 +23,30 @@ export class FuncionariosdetailsComponent {
   }
 
   salvar() {
-    //ISSO AQUI SERVE PARA EDITAR OU ADICIONAR... TANTO FAZ
+    if (this.funcionario.id > 0) {
+      this.funcionarioService.edita(this.funcionario).subscribe({
+        next: funcionario => {
+          this.retorno.emit(this.funcionario);
+          this.funcionario.id = 0;
+        },
+        error: erro => {
+          alert('Error!! verificar no console!!');
+          console.error(erro);
+        }
+      });
+    } else {
+      this.funcionarioService.cadastra(this.funcionario).subscribe({
+        next: funcionario => {
+          this.retorno.emit(funcionario);
+        },
+        error: erro => {
+          alert('Erro!! verificar no console!!');
+          console.error(erro);
+        }
+      });
 
-    this.funcionarioService.cadastra(this.funcionario).subscribe({
-      next: funcionario => { // QUANDO DÁ CERTO
-        this.retorno.emit(funcionario);
-      },
-      error: erro => { // QUANDO DÁ ERRO
-        alert('Exemplo de tratamento de erro/exception! Observe o erro no console!');
-        console.error(erro);
-      }
-    });
 
+    }
 
   }
-
 }

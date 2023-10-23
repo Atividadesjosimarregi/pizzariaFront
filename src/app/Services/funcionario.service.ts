@@ -29,4 +29,9 @@ export class FuncionarioService {
     const url = `${this.API}/${id}`;
     return this.http.delete(url);
   }
+
+  edita(funcionario: Funcionario): Observable<Funcionario>{
+    return this.http.put<Funcionario>(this.API, funcionario);
+  }
+
 }

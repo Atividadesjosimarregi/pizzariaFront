@@ -1,10 +1,10 @@
 <body>
     <div class="login-container">
         <form class="login-form">
-            <h2>Cadastrar Carro</h2>
+            <h2>Cadastrar Funcionário</h2>
             <div class="input-group">
-                <label for="username">Modelo:</label>
-                <input type="text" id="username" name="username" placeholder="Digite o modelo" [(ngModel)]="funcionario.nome">
+                <label for="username">Nome:</label>
+                <input type="text" id="username" name="username" placeholder="Digite o nome" [(ngModel)]="funcionario.nome">
             </div>
             <button  (click)="salvar()" type="submit">Salvar</button>
         </form>
