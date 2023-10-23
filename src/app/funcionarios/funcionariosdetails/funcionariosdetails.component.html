@@ -1,9 +1,12 @@
-<div class="main">
-
-    <input type="text" placeholder="Nome" [(ngModel)]="funcionario.nome">
-
-    
-
-    <input type="button" (click)="salvar()" value="Criar" routerLink="/admin/funcionarios" />
-
-</div>
+<body>
+    <div class="login-container">
+        <form class="login-form">
+            <h2>Cadastrar Carro</h2>
+            <div class="input-group">
+                <label for="username">Modelo:</label>
+                <input type="text" id="username" name="username" placeholder="Digite o modelo" [(ngModel)]="funcionario.nome">
+            </div>
+            <button  (click)="salvar()" type="submit">Salvar</button>
+        </form>
+    </div>
+</body>

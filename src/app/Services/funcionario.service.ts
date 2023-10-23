@@ -14,7 +14,7 @@ export class FuncionarioService {
   constructor() { }
 
   list(): Observable<Funcionario[]> {
-    return this.http.get<Funcionario[]>(this.API);
+    return this.http.get<Funcionario[]>(this.API + '/lista');
   }
 
   cadastra(funcionario: Funcionario): Observable<Funcionario> {
