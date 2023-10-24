@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Funcionario } from '../funcionario';
-import { FuncionarioService } from 'src/app/Services/funcionario.service';
+import { Funcionario } from '../../../models/funcionario';
+import { FuncionarioService } from 'src/Services/funcionario.service';
 
 @Component({
   selector: 'app-funcionariosdetails',

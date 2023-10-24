@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
-import { Funcionario } from '../funcionario';
+import { Funcionario } from '../../../models/funcionario';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { FuncionarioService } from 'src/app/Services/funcionario.service';
+import { FuncionarioService } from 'src/Services/funcionario.service';
 
 @Component({
   selector: 'app-funcionarioslist',

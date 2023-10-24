@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Funcionario } from '../funcionarios/funcionario';
+import { Funcionario } from '../models/funcionario';
 import { Observable } from 'rxjs';
 
 @Injectable({
