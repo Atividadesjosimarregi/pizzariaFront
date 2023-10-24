@@ -1,0 +1,13 @@
+<body>
+    <div class="login-container">
+        <form class="login-form">
+            <h2>Cadastrar Item</h2>
+            <div class="input-group">
+                <label for="username">Nome:</label>
+                <input type="text" id="username" name="username" placeholder="Digite o nome" [(ngModel)]="estoque.nome">
+                <input type="number" id="username" name="username" placeholder="Digite o preço" [(ngModel)]="estoque.preco">
+            </div>
+            <button  (click)="salvar()" type="submit">Salvar</button>
+        </form>
+    </div>
+</body>

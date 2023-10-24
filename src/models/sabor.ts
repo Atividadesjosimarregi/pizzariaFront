@@ -1,3 +1,5 @@
 export class Sabor{
-    sabor!:string;
+
+    id!:number;
+    saborr!:string;
 }

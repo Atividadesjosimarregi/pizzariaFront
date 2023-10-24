@@ -6,7 +6,7 @@ import { Pizza } from 'src/models/pizza';
 @Injectable({
   providedIn: 'root'
 })
-export class FuncionarioService {
+export class PizzaService {
 
   API: string = 'http://localhost:8010/pizza';
   http = inject(HttpClient);

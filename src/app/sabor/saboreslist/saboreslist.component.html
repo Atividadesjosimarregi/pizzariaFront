@@ -1,0 +1,46 @@
+<div id="tudo">
+
+    <div id = "tudomesmo">
+
+        <button id="botaoCadastro" (click)="abrirModal(abc)" >Cadastrar</button>
+    
+    </div>
+    
+    
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#ID</th>
+                <th>Sabor</th>
+                <th>Botões</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let sabor of lista; let i = index" >
+                <td>{{sabor.id}}</td>
+                <td>{{sabor.saborr}}</td>
+                <td><button class="btn btn-danger" (click)="editar(abc, sabor, i)">Editar</button>
+                    <button class="btn btn-danger" (click)="deleteSabor(sabor.id)">Deletar</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+<ng-template #abc let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title">Cadastrar</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+		
+        <app-saboresdetails [sabor]="saborSelecionadoParaEdicao"(retorno)="addOuEditarSabor($event)"></app-saboresdetails>            
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-light" (click)="modal.close('Close click')">Fechar</button>
+	</div>
+</ng-template>

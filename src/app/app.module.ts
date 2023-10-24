@@ -12,6 +12,12 @@ import { LoginComponent } from './sistema/login/login.component';
 import { FuncionariosdetailsComponent } from './funcionarios/funcionariosdetails/funcionariosdetails.component';
 import { FuncionarioslistComponent } from './funcionarios/funcionarioslist/funcionarioslist.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SaboreslistComponent } from './sabor/saboreslist/saboreslist.component';
+import { SaboresdetailsComponent } from './sabor/saboresdetails/saboresdetails.component';
+import { ProdutoslistComponent } from './produto/produtoslist/produtoslist.component';
+import { ProdutosdetailsComponent } from './produto/produtosdetails/produtosdetails.component';
+import { EstoquelistComponent } from './estoque/estoquelist/estoquelist.component';
+import { EstoquedetailsComponent } from './estoque/estoquedetails/estoquedetails.component';
 
 
 @NgModule({
@@ -22,7 +28,13 @@ import { HttpClientModule } from '@angular/common/http';
     IndexComponent,
     LoginComponent,
     FuncionariosdetailsComponent,
-    FuncionarioslistComponent
+    FuncionarioslistComponent,
+    SaboreslistComponent,
+    SaboresdetailsComponent,
+    ProdutoslistComponent,
+    ProdutosdetailsComponent,
+    EstoquelistComponent,
+    EstoquedetailsComponent
   ],
   imports: [
     BrowserModule,
