@@ -2,6 +2,8 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Produto } from 'src/models/produto';
+import { Estoque } from 'src/models/estoque';
+import { EstoqueService } from './estoque.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +13,14 @@ export class ProdutoService {
   API: string = 'http://localhost:8010/produto';
   http = inject(HttpClient);
 
-  constructor() { }
+  
+
+
+  constructor(private estoqueService: EstoqueService) { }
+
+  getAvailableEstoques(): Observable<Estoque[]> {
+    return this.estoqueService.list();
+  }
 
   list(): Observable<Produto[]> {
     return this.http.get<Produto[]>(this.API + '/lista');

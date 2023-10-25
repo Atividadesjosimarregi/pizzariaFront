@@ -25,34 +25,60 @@ export class ClientesdetailsComponent {
   }
   
 novoEndereco = new Endereco();
-  salvar() {
+salvar() {
 
-    this.cliente.enderecos?.push(this.novoEndereco);
-    if (this.cliente.id > 0) {
-      this.clienteService.edita(this.cliente).subscribe({
-        next: cliente => {
-          this.retorno.emit(this.cliente);
-          this.cliente.id = 0;
-        },
-        error: erro => {
-          alert('Error!! verificar no console!!');
-          console.error(erro);
-        }
-      });
-    } else {
-      this.clienteService.cadastra(this.cliente).subscribe({
-        next: cliente => {
-          this.retorno.emit(cliente);
-        },
-        error: erro => {
-          alert('Erro!! verificar no console!!');
-          console.error(erro);
-        }
-      });
+  const novoEndereco = new Endereco();
 
+  novoEndereco.rua = this.novoEndereco.rua;
+  novoEndereco.bairro = this.novoEndereco.bairro;
+  novoEndereco.numero = this.novoEndereco.numero;
+  novoEndereco.observacao = this.novoEndereco.observacao;
+  novoEndereco.cep = this.novoEndereco.cep;
 
-    }
-
+ 
+  if (!this.cliente.enderecos) {
+    this.cliente.enderecos = [];
   }
+
+
+  this.cliente.enderecos.push(novoEndereco);
+
+  if (this.cliente.id > 0) {
+    this.clienteService.edita(this.cliente).subscribe({
+      next: cliente => {
+        this.retorno.emit(this.cliente);
+        this.cliente.id = 0;
+        this.limparCamposEndereco();
+      },
+      error: erro => {
+        alert('Error!! verificar no console!!');
+        console.error(erro);
+      }
+    });
+  } else {
+    this.clienteService.cadastra(this.cliente).subscribe({
+      next: cliente => {
+        this.retorno.emit(cliente);
+        this.cliente.enderecos = [];
+        this.limparCamposEndereco();
+      },
+      error: erro => {
+        alert('Erro!! verificar no console!!');
+        console.error(erro);
+      }
+    });
+  }
+}
+
+limparCamposEndereco() {
+  this.novoEndereco.rua = '';
+  this.novoEndereco.bairro = '';
+  this.novoEndereco.numero = 0;
+  this.novoEndereco.observacao = '';
+  this.novoEndereco.cep = '';
+}
+
+
+
 
 }

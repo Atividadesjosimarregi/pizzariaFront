@@ -34,4 +34,9 @@ export class EnderecoService {
     return this.http.put<Endereco>(this.API, endereco);
   }
 
+  editaEndereco(endereco: Endereco): Observable<Endereco> {
+    const url = `${this.API}/${endereco.id}`;
+    return this.http.put<Endereco>(url, endereco);
+  }
+
 }
