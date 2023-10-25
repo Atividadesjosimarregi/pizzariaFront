@@ -5,6 +5,6 @@ export class Pizza{
     id!:number;
     sabores?:Sabor[] = [];
     preco!:number;
-    quantidade!:number;
+    quantidade?:number;
     tamanho!:Tamanho;
 }

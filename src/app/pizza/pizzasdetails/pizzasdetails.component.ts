@@ -26,28 +26,32 @@ export class PizzasdetailsComponent {
     })
   }
 
-  salvar(){
-    if(this.pizza.id > 0){
+  salvar() {
+    if (this.pizza.id > 0) {
       this.pizzaService.edita(this.pizza).subscribe({
         next: pizza => {
-            this.retorno.emit(this.pizza);
+          this.retorno.emit(this.pizza);
+          this.pizza.id = 0;
         },
         error: erro => {
           alert('Error!! verificar no console!!');
           console.error(erro);
         }
       });
-    } else{
+    } else {
       this.pizzaService.cadastra(this.pizza).subscribe({
         next: pizza => {
           this.retorno.emit(pizza);
+          console.log("deu bom");
         },
         error: erro => {
           alert('Erro!! verificar no console!!');
           console.error(erro);
         }
       });
+
     }
+
   }
 
 
