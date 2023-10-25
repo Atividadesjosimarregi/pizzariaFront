@@ -5,6 +5,9 @@ import { LoginComponent } from './sistema/login/login.component';
 import { FuncionarioslistComponent } from './funcionarios/funcionarioslist/funcionarioslist.component';
 import { SaboreslistComponent } from './sabor/saboreslist/saboreslist.component';
 import { EstoquelistComponent } from './estoque/estoquelist/estoquelist.component';
+import { ClientesdetailsComponent } from './cliente/clientesdetails/clientesdetails.component';
+import { ClienteslistComponent } from './cliente/clienteslist/clienteslist.component';
+import { PizzasdetailsComponent } from './pizza/pizzasdetails/pizzasdetails.component';
 
 const routes: Routes = [
 
@@ -15,7 +18,9 @@ const routes: Routes = [
 
     {path: "funcionarios", component: FuncionarioslistComponent},
     {path: "sabores", component: SaboreslistComponent},
-    {path: "estoque", component: EstoquelistComponent}
+    {path: "estoque", component: EstoquelistComponent},
+    {path: "cliente", component: ClienteslistComponent},
+    {path: "pizza", component: PizzasdetailsComponent}
 
   
 

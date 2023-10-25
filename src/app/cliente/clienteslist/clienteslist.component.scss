@@ -1,0 +1,105 @@
+/* Estilo para o container geral */
+#tudo {
+    text-align: center;
+    margin: 0 auto;
+  }
+  
+  /* Estilo para o botão de cadastro */
+  #botaoCadastro {
+    background-color: #008000; /* Cor verde como exemplo, escolha uma que combine com sua aplicação */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  /* Estilo para a tabela de clientes */
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px auto;
+  }
+  
+  .table th, .table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .table th {
+    background-color: #FFA500;
+    color: #fff;
+  }
+  
+  /* Estilo para os botões de editar e deletar */
+  .table button {
+    background-color: #FF0000; /* Cor vermelha como exemplo, escolha uma que combine com sua aplicação */
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-right: 5px;
+  }
+  
+  /* Estilo para o modal de cadastro */
+  .modal-header {
+    background-color: #FFA500;
+    color: #fff;
+    padding: 10px;
+  }
+  
+  .modal-title {
+    font-size: 24px;
+  }
+  
+  .modal-body {
+    padding: 20px;
+  }
+  
+  .modal-footer {
+    background-color: #FFA500;
+    padding: 10px;
+  }
+  
+  /* Estilo para o botão de fechar no modal */
+  .btn-close {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #fff;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+  }
+  
+  /* Estilo para o botão de fechar o modal */
+  .btn-light {
+    background-color: #fff;
+    color: #000;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+
+  .endereco-item{
+
+    list-style: none;
+    display: inline-flex;
+    
+
+  }
+
+  .endereco-item p{
+
+margin-right: 20px;
+font-size: 17px;
+text-align: center;
+
+
+  }
+  
+  /* Estilo para os campos de edição de clientes dentro do modal */
+  /* Adicione os estilos apropriados para app-clientesdetails conforme necessário */
+  

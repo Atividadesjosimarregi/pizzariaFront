@@ -1,0 +1,62 @@
+<div id="tudo">
+
+    <div id = "tudomesmo">
+
+        <button id="botaoCadastro" (click)="abrirModal(abc)" >Cadastrar</button>
+    
+    </div>
+    
+    
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#ID</th>
+                <th>Nome</th>
+                <th>Endereços</th>
+                <th>Botões</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cliente of lista; let i = index">
+                <td>{{cliente.id}}</td>
+                <td>{{cliente.nome}}</td>
+                <td>
+                    <ul *ngIf="cliente.enderecos && cliente.enderecos.length > 0">
+                        <li class="endereco-item" *ngFor="let endereco of cliente.enderecos; let i = index">
+                            <p><strong>Rua:</strong> {{endereco.rua}}</p>
+                            <p><strong>Número:</strong> {{endereco.numero}}</p>
+                            <p><strong>CEP:</strong> {{endereco.cep}}</p>
+                            <p><strong>Observação:</strong> {{endereco.observacao}}</p>
+                        </li>
+                    </ul>
+                    <div *ngIf="!(cliente.enderecos && cliente.enderecos.length > 0)">
+                        Nenhum endereço cadastrado.
+                    </div>
+                </td>
+                <td>
+                    <button class="btn btn-danger" (click)="editar(abc, cliente, i)">Editar</button>
+                    <button class="btn btn-danger" (click)="deleteCliente(cliente.id)">Deletar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+<ng-template #abc let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title">Cadastrar</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+		
+        <app-clientesdetails [cliente]="clienteSelecionadoParaEdicao"(retorno)="addOuEditarCliente($event)"></app-clientesdetails>            
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-light" (click)="modal.close('Close click')">Fechar</button>
+	</div>
+</ng-template>

@@ -1,0 +1,63 @@
+/* Estilo para o container do formulário */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente para a modal */
+  }
+  
+  /* Estilo para o formulário de cadastro de carro */
+  .login-form {
+    background-color: #fff;
+    width: 300px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sutil sombra */
+    text-align: center;
+    border: none; /* Removendo a borda */
+  }
+  
+  /* Estilo para o título "Cadastrar Carro" */
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilo para o rótulo e campo de entrada */
+  .input-group {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  
+  .input-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 10px;
+    border: none; /* Removendo a borda */
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none; /* Removendo a borda ao focar no campo de entrada */
+  }
+  
+  /* Estilo para o botão "Salvar" */
+  button {
+    background-color: #008000; /* Cor verde como exemplo, escolha uma que combine com sua aplicação */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #006400; /* Cor ligeiramente mais escura ao passar o mouse */
+  }
+  

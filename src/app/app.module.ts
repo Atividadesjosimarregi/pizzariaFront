@@ -18,6 +18,10 @@ import { ProdutoslistComponent } from './produto/produtoslist/produtoslist.compo
 import { ProdutosdetailsComponent } from './produto/produtosdetails/produtosdetails.component';
 import { EstoquelistComponent } from './estoque/estoquelist/estoquelist.component';
 import { EstoquedetailsComponent } from './estoque/estoquedetails/estoquedetails.component';
+import { ClienteslistComponent } from './cliente/clienteslist/clienteslist.component';
+import { ClientesdetailsComponent } from './cliente/clientesdetails/clientesdetails.component';
+import { PizzaslistComponent } from './pizza/pizzaslist/pizzaslist.component';
+import { PizzasdetailsComponent } from './pizza/pizzasdetails/pizzasdetails.component';
 
 
 @NgModule({
@@ -34,7 +38,11 @@ import { EstoquedetailsComponent } from './estoque/estoquedetails/estoquedetails
     ProdutoslistComponent,
     ProdutosdetailsComponent,
     EstoquelistComponent,
-    EstoquedetailsComponent
+    EstoquedetailsComponent,
+    ClienteslistComponent,
+    ClientesdetailsComponent,
+    PizzaslistComponent,
+    PizzasdetailsComponent
   ],
   imports: [
     BrowserModule,
