@@ -1,66 +1,208 @@
-<div class="pizzaDetailsClass">
-    <h1>Cadastre um novo pedido 🍕</h1>
-    <br>
-    <button id="botaoCadastro" (click)="abrirModal(abc)">Cadastrar Pizza</button>
-
-    <button id="botaoCadastro" (click)="abrirModal(abcd)">Cadastrar Produto</button>
-    <br>
-
-    <label for="username">Observacoes:</label>
-    <input type="text" id="observacoes" name="observacoes" placeholder="Observações" [(ngModel)]="pedido.observacoes">
-
-    <label for="cliente">Cliente:</label>
-    <select id="cliente" [(ngModel)]="pedido.cliente" name="cliente">
-        <option *ngFor="let cliente of clientes" [value]="cliente">{{ cliente.nome }}</option>
-    </select>
-
-    <label for="funcionario">Funcionario:</label>
-    <select id="funcionario" [(ngModel)]="pedido.funcionario" name="funcionario">
-        <option *ngFor="let funcionario of funcionarios" [value]="funcionario">{{ funcionario.nome }}</option>
-    </select>
-
-    <br>
-    <label for="delivery">Delivery</label>
-    <input id="delivery" type="checkbox" value="true" [(ngModel)]="pedido.delivery">
-    <br>
-
-    <br>
-    <label for="pagamentoCartao">Cartão de crédido</label>
-    <input id="pagamentoCartao" type="checkbox" value="true" [(ngModel)]="pedido.pagamentoCartao">
-    <br>
-
-    <input type="button" value="Adicionar" class="btn btn-dark" id="inputBotao" (click)="salvar()">
-</div>
-
-
-
-
-<ng-template #abc let-modal>
+<form (ngSubmit)="salvar()">
+    <div class="mb-3">
+      <label for="exampleInputText1" class="form-label">Observações:</label>
+      <input
+        type="text"
+        class="form-control"
+        name="exampleInputText1"
+        aria-describedby="emailHelp"
+        [(ngModel)]="pedido.observacoes"
+      />
+    </div>
+  
+    <button type="button" class="btn btn-danger" (click)="lancar(modal1)">
+      Produtos
+    </button>
+  
+    <button type="button" class="btn btn-danger" (click)="lancarPizza(modal2)">
+      Pizza
+    </button>
+  
+    <table class="table table-striped">
+      <thead>
+        <div>Produtos:</div>
+        <tr>
+          <th scope="col">#ID</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Valor</th>
+          <th scope="col">Ações</th>
+        </tr>
+      </thead>
+      <thead>
+        Pizzas:
+        <tr>
+          <th scope="col">#ID</th>
+          <th scope="col">Sabor(es)</th>
+          <th scope="col">Valor</th>
+          <th scope="col">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let estoque of pedido.estoque let i = index">
+          <th scope="row">{{ estoque.id }}</th>
+          <td>{{ estoque.nome }}</td>
+          <td>{{ estoque.preco }}</td>
+          <td>
+            <button
+              type="button"
+              class="btn btn-danger"
+              (click)="excluir(estoque, i)"
+            >
+              Excluir
+            </button>
+          </td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr *ngFor="let pizza of pedido.pizzas; let i = index">
+          <th scope="row">{{ pizza.id }}</th>
+          <td>
+            <ul>
+              <li *ngFor="let sabor of pizza.sabores">{{ sabor.saborr }}</li>
+            </ul>
+          </td>
+          <td>{{ pizza.preco }}</td>
+          <td>
+            <button
+              type="button"
+              class="btn btn-danger"
+              (click)="excluirPizza(pizza, i)"
+            >
+              Excluir
+            </button>
+          </td>
+        </tr>
+      </tbody>
+  
+      <div class="mb-3">
+        <label for="usuarioSelect" class="form-label"
+          >Selecione um Usuário:</label
+        >
+        <select
+          id="usuarioSelect"
+          class="form-control"
+          name="usuarioSelect"
+          [(ngModel)]="pedido.cliente.id"
+        >
+          <option value="" disabled selected>Escolha um usuário</option>
+          <option *ngFor="let cliente of listaDeUsuarios" [value]="cliente.id">
+            {{ cliente.nome }}
+          </option>
+        </select>
+      </div>
+  
+      <div class="mb-3">
+        <label for="funcionarioSelect" class="form-label"
+          >Selecione um funcionário:</label
+        >
+        <select
+          id="funcionarioSelect"
+          class="form-control"
+          name="funcionarioSelect"
+          [(ngModel)]="pedido.funcionario.id"
+        >
+          <option value="" disabled selected>Escolha um usuário</option>
+          <option
+            *ngFor="let funcionario of listaDeFuncionarios"
+            [value]="funcionario.id"
+          >
+            {{ funcionario.nome }}
+          </option>
+        </select>
+      </div>
+  
+      <div class="mb-3">
+        <label class="form-label">Selecione a forma de pagamento:</label>
+        <div class="form-check form-check-inline">
+          <input
+            type="radio"
+            class="form-check-input"
+            id="pagamentoCartao"
+            name="pagamento"
+            [value]="true"
+            [(ngModel)]="pedido.pagamentoCartao"
+            (change)="definirPagamentoDinheiro(false)"
+          />
+          <label class="form-check-label" for="pagamentoCartao">Cartão</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input
+            type="radio"
+            class="form-check-input"
+            id="pagamentoDinheiro"
+            name="pagamento"
+            [value]="false"
+            [(ngModel)]="pedido.pagamentoCartao"
+            (change)="definirPagamentoDinheiro(true)"
+          />
+          <label class="form-check-label" for="pagamentoDinheiro">Dinheiro</label>
+        </div>
+  
+        <label class="form-label">Entrega? 🛵</label>
+        <div class="form-check">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            id="entrega"
+            name="entrega"
+            [value]="true"
+            [(ngModel)]="pedido.delivery"
+          />
+          <label class="form-check-label" for="entrega">Sim</label>
+        </div>
+      </div>
+    </table>
+  
+    <button type="submit" class="btn btn-success">Salvar</button>
+  </form>
+  
+  <ng-template #modal1 let-modal>
     <div class="modal-header">
-        <h4 class="modal-title">Cadastrar</h4>
-        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+      <h4 class="modal-title">Lançar Produto</h4>
+      <button
+        type="button"
+        class="btn-close"
+        aria-label="Close"
+        (click)="modal.dismiss('Cross click')"
+      ></button>
     </div>
     <div class="modal-body">
-
-        <app-pizzasdetails [pizza]="pizzaSelecionadoParaEdicao"
-            (retorno)="addOuEditarPizza($event)"></app-pizzasdetails>
+      <app-estoquelist
+        [modoLancamento]="true"
+        (retorno)="retornoProdutosList($event)"
+      ></app-estoquelist>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Fechar</button>
+      <button
+        type="button"
+        class="btn btn-light"
+        (click)="modal.close('Close click')"
+      >
+        Fechar
+      </button>
     </div>
-</ng-template>
-
-<ng-template #abcd let-modal>
+  </ng-template>
+  
+  <ng-template #modal2 let-modal>
     <div class="modal-header">
-        <h4 class="modal-title">Cadastrar</h4>
-        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+      <h4 class="modal-title">Adicionar nova pizza</h4>
+      <button
+        type="button"
+        class="btn-close"
+        aria-label="Close"
+        (click)="modal.dismiss('Cross click')"
+      ></button>
     </div>
     <div class="modal-body">
-
-        <app-produtosdetails [produto]="produtoSelecionadoParaEdicao"
-            (retorno)="addOuEditarProduto($event)"></app-produtosdetails>
+      <app-pizzasdetails (retorno)="retornoPizzaList($event)"></app-pizzasdetails>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Fechar</button>
+      <button
+        type="button"
+        class="btn btn-light"
+        (click)="modal.close('Close click')"
+      >
+        Fechar
+      </button>
     </div>
-</ng-template>
+  </ng-template>

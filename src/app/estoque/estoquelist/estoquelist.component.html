@@ -1,12 +1,12 @@
 <div id="tudo">
 
-    <div id = "tudomesmo">
+    <div id="tudomesmo">
 
-        <button id="botaoCadastro" (click)="abrirModal(abc)" >Cadastrar</button>
-    
+        <button id="botaoCadastro" (click)="abrirModal(abc)">Cadastrar</button>
+
     </div>
-    
-    
+
+
     <table class="table table-striped">
         <thead>
             <tr>
@@ -17,12 +17,18 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let estoque of lista; let i = index" >
+            <tr *ngFor="let estoque of lista; let i = index">
                 <td>{{estoque.id}}</td>
                 <td>{{estoque.nome}}</td>
                 <td>{{estoque.preco}}</td>
                 <td><button class="btn btn-danger" (click)="editar(abc, estoque, i)">Editar</button>
-                    <button class="btn btn-danger" (click)="deleteEstoque(estoque.id)">Deletar</button></td>
+                    <button class="btn btn-danger" (click)="deleteEstoque(estoque.id)">Deletar</button>
+                </td>
+                <td *ngIf="modoLancamento">
+                    <button type="button" class="btn btn-success" (click)="lancamento(estoque)">
+                        Lançar
+                    </button>
+                </td>
             </tr>
         </tbody>
     </table>
@@ -34,15 +40,16 @@
 
 
 <ng-template #abc let-modal>
-	<div class="modal-header">
-		<h4 class="modal-title">Cadastrar</h4>
-		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
-	</div>
-	<div class="modal-body">
-		
-        <app-estoquedetails [estoque]="estoqueSelecionadoParaEdicao"(retorno)="addOuEditarEstoque($event)"></app-estoquedetails>            
-	</div>
-	<div class="modal-footer">
-		<button type="button" class="btn btn-light" (click)="modal.close('Close click')">Fechar</button>
-	</div>
+    <div class="modal-header">
+        <h4 class="modal-title">Cadastrar</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+
+        <app-estoquedetails [estoque]="estoqueSelecionadoParaEdicao"
+            (retorno)="addOuEditarEstoque($event)"></app-estoquedetails>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Fechar</button>
+    </div>
 </ng-template>

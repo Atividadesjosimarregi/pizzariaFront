@@ -2,6 +2,7 @@ export class Estoque{
     id!:number;
     preco!:number;
     nome!:string;
+    quantidade!: number;
 
 
     public setId(id: number){
@@ -12,6 +13,10 @@ export class Estoque{
     }
     public setNomeProduto(nome: string){
         this.nome = nome;
+    }
+
+    public setQuantidade(quantidade: number){
+        this.quantidade = quantidade;
     }
 }
 

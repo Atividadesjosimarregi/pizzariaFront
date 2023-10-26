@@ -10,7 +10,7 @@ import { Sabor } from 'src/models/sabor';
 })
 export class PizzasdetailsComponent {
 
-  
+  @Input() modoLancamento: boolean = false;
   @Input() pizza: Pizza = new Pizza();
   @Output() retorno = new EventEmitter<Pizza>();
 

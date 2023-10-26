@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { EstoqueService } from 'src/Services/estoque.service';
 import { Estoque } from 'src/models/estoque';
@@ -9,6 +9,9 @@ import { Estoque } from 'src/models/estoque';
   styleUrls: ['./estoquelist.component.scss']
 })
 export class EstoquelistComponent {
+
+  @Output() retorno = new EventEmitter<Estoque>();
+  @Input() modoLancamento: boolean = false;
 
   lista: Estoque[] = [];
 
@@ -36,6 +39,10 @@ export class EstoquelistComponent {
       this.lista.push(estoque);
       this.modalService.dismissAll();
 
+    }
+
+    lancamento(estoque: Estoque) {
+      this.retorno.emit(estoque);
     }
 
     list() {
