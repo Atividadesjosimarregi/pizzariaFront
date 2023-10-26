@@ -2,13 +2,18 @@
 #tudo {
     text-align: center;
     margin: 0 auto;
+    min-height: 78vh;
   }
   
   /* Estilo para o botão de cadastro */
   #botaoCadastro {
-    background-color: #008000; /* Cor verde como exemplo, escolha uma que combine com sua aplicação */
+    background-color: orange; /* Cor verde como exemplo, escolha uma que combine com sua aplicação */
     color: #fff;
+    float: left;
+    margin-left: 20px;
+    margin-bottom: 20px;
     border: none;
+    border-radius: 5px;
     padding: 10px 20px;
     cursor: pointer;
     margin-top: 20px;

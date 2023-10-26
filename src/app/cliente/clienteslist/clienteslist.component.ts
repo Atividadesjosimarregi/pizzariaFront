@@ -70,14 +70,14 @@ export class ClienteslistComponent {
     adicionar(modal: any) {
       this.clienteSelecionadoParaEdicao = new Cliente();
   
-      this.modalService.open(modal, { size: 'sm' });
+      this.modalService.open(modal, { size: 'lg' });
     }
   
     editar(modal: any, cliente: Cliente, indice: number) {
       this.clienteSelecionadoParaEdicao = Object.assign({}, cliente); //clonando o objeto se for edição... pra não mexer diretamente na referência da lista
       this.indiceSelecionadoParaEdicao = indice;
   
-      this.modalService.open(modal, { size: 'sm' });
+      this.modalService.open(modal, { size: 'lg' });
     }
   
     addOuEditarCliente(cliente: Cliente) {

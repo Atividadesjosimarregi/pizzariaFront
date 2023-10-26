@@ -1,0 +1,61 @@
+/* Estilo para o container geral */
+.pizzaDetailsClass {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Estilo para o título */
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilo para os rótulos e seletores */
+  label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  select, input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 5px;
+  }
+  
+  select[multiple] {
+    height: 150px; /* Defina a altura desejada */
+  }
+  
+  /* Estilo para o botão Adicionar */
+  #inputBotao {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  /* Estilo para os botões do seletor múltiplo */
+  select[multiple] option {
+    padding: 5px;
+  }
+  
+  /* Estilo para o botão de fechar o modal */
+  .btn-dark {
+    background-color: #343a40; /* Cor escura como exemplo, escolha uma que combine com sua aplicação */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  

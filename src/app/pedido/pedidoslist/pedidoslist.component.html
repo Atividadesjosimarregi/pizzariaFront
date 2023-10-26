@@ -1,1 +1,72 @@
-<p>pedidoslist works!</p>
+<div id="tudo">
+
+    <div id="tudomesmo">
+
+        <button id="botaoCadastro" (click)="abrirModal(abc)">Cadastrar</button>
+
+    </div>
+
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#ID</th>
+                <th>Cliente</th>
+                <th>Produtos</th>
+                <th>Pizzas</th>
+                <th>Delivery</th>
+                <th>Total</th>
+                <th>Botões</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let pedido of lista; let i = index">
+                <td>{{pedido.id}}</td>
+                <td>{{pedido.cliente.nome}}</td>
+
+
+                <td>
+                    <ul>
+                        <li *ngFor="let produto of pedido.estoque">{{ produto.nome }}</li>
+                    </ul>
+                </td>
+
+                <td>
+                    <ul *ngFor="let pizza of pedido.pizzas">
+                        <li *ngFor="let sabor of pizza.sabores">
+                            {{ sabor.saborr }} (Tamanho: {{ pizza.tamanho }})
+                        </li>
+                    </ul>
+                </td>
+
+                <td>{{pedido.delivery}}</td>
+                <td>{{pedido.preco}}</td>
+
+
+                <td><button class="btn btn-danger" (click)="editar(abc, pedido, i)">Editar</button>
+                    <button class="btn btn-danger" (click)="deletePedido(pedido.id)">Deletar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+<ng-template #abc let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Cadastrar</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+
+        <app-pedidosdetails [pedido]="pedidoSelecionadoParaEdicao"
+            (retorno)="addOuEditarPedido($event)"></app-pedidosdetails>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Fechar</button>
+    </div>
+</ng-template>

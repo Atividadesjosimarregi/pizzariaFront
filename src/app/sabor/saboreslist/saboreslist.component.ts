@@ -70,14 +70,14 @@ export class SaboreslistComponent {
     adicionar(modal: any) {
       this.saborSelecionadoParaEdicao = new Sabor();
   
-      this.modalService.open(modal, { size: 'sm' });
+      this.modalService.open(modal, { size: 'lg' });
     }
   
     editar(modal: any, sabor: Sabor, indice: number) {
       this.saborSelecionadoParaEdicao = Object.assign({}, sabor); //clonando o objeto se for edição... pra não mexer diretamente na referência da lista
       this.indiceSelecionadoParaEdicao = indice;
   
-      this.modalService.open(modal, { size: 'sm' });
+      this.modalService.open(modal, { size: 'lg' });
     }
   
     addOuEditarSabor(sabor: Sabor) {

@@ -1,8 +1,7 @@
-/* Estilo para o container geral */
-.pizzaDetailsClass {
-    max-width: 600px;
+/* Estilo para o formulário de pedido */
+form {
+    max-width: 800px;
     margin: 0 auto;
-    text-align: center;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -14,9 +13,9 @@
     margin-bottom: 20px;
   }
   
-  /* Estilo para os botões de cadastro de pizza e produto */
-  #botaoCadastro {
-    background-color: #008000; /* Cor verde como exemplo, escolha uma que combine com sua aplicação */
+  /* Estilo para os botões de lançamento de produto e pizza */
+  .btn-danger {
+    background-color: #FF0000; /* Cor vermelha como exemplo, escolha uma que combine com sua aplicação */
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -24,16 +23,34 @@
     margin: 10px;
   }
   
+  /* Estilo para a tabela de produtos e pizzas */
+  .table {
+    width: 100%;
+    margin: 20px auto;
+    border-collapse: collapse;
+  }
+  
+  .table th,
+  .table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .table th {
+    background-color: #FFA500; /* Cor laranja como exemplo, escolha uma que combine com sua aplicação */
+    color: #fff;
+  }
+  
   /* Estilo para os rótulos e campos de entrada */
-  label {
+  .form-label {
     display: block;
     margin-top: 10px;
     font-weight: bold;
   }
   
-  input[type="text"],
-  select,
-  input[type="checkbox"] {
+  .form-control,
+  .form-check-input {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -42,9 +59,9 @@
     margin-top: 5px;
   }
   
-  /* Estilo para os botões Adicionar */
-  #inputBotao {
-    background-color: #000;
+  /* Estilo para os botões Adicionar e Salvar */
+  .btn-success {
+    background-color: #008000; /* Cor verde como exemplo, escolha uma que combine com sua aplicação */
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -81,15 +98,6 @@
     position: absolute;
     right: 10px;
     top: 10px;
-    cursor: pointer;
-  }
-  
-  /* Estilo para o botão de fechar o modal */
-  .btn-light {
-    background-color: #fff;
-    color: #000;
-    border: none;
-    padding: 5px 10px;
     cursor: pointer;
   }
   
