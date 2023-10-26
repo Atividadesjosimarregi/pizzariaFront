@@ -4,6 +4,7 @@ export class Produto {
     id!: number;
     quantidade!: number;
     precoProduto?: number;
-    estoques?: Estoque; 
-  }
+    estoques: Estoque = new Estoque;
+
+}
   
