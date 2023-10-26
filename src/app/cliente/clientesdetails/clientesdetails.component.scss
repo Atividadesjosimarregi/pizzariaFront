@@ -3,8 +3,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50vh;
-    background-color: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente para a modal */
+    
+
   }
   
   /* Estilo para o formulário de cadastro de carro */
@@ -16,6 +16,10 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sutil sombra */
     text-align: center;
     border: none; /* Removendo a borda */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
   
   /* Estilo para o título "Cadastrar Carro" */
@@ -55,6 +59,7 @@
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s;
+    margin-bottom: 5px;
   }
   
   button:hover {
