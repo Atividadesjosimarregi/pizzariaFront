@@ -8,16 +8,15 @@ import { Estoque } from "./estoque";
 export class Pedido{
     id!:number;
     observacoes?:string;
-    cliente : Cliente = new Cliente;
+    cliente: Cliente = new Cliente;
     preco?:number;
-        
     pizzas: Pizza[] = [];
-    estoque!:Estoque[];
+    estoque!: Estoque[];
     entrega?:boolean;
-    delivery!:boolean;
+    delivery?:boolean;
     cancelado?:boolean;
     pagamentoCartao?:boolean;
-    pagamentoDinheiro!: boolean;
+    pagamentoDinheiro?: boolean;
     cadastro?:Date;
     funcionario: Funcionario = new Funcionario;
 
