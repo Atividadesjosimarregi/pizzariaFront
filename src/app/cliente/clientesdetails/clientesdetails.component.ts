@@ -25,6 +25,37 @@ export class ClientesdetailsComponent {
   }
   
 novoEndereco = new Endereco();
+
+editar(){
+  const novoEndereco = new Endereco();
+
+  novoEndereco.rua = this.novoEndereco.rua;
+  novoEndereco.bairro = this.novoEndereco.bairro;
+  novoEndereco.numero = this.novoEndereco.numero;
+  novoEndereco.observacao = this.novoEndereco.observacao;
+  novoEndereco.cep = this.novoEndereco.cep;
+
+  if (!this.cliente.enderecos) {
+    this.cliente.enderecos = [];
+  }
+
+
+  this.clienteService.edita(this.cliente).subscribe({
+    next: cliente => {
+      this.retorno.emit(this.cliente);
+      this.cliente.id = 0;
+      this.cliente.enderecos = [];
+      this.limparCamposEndereco();
+      this.limparCamposCLiente();
+    },
+    error: erro => {
+      alert('Error!! verificar no console!!');
+      console.error(erro);
+    }
+  });
+}
+
+
 salvar() {
 
   const novoEndereco = new Endereco();
@@ -76,6 +107,10 @@ limparCamposEndereco() {
   this.novoEndereco.numero = 0;
   this.novoEndereco.observacao = '';
   this.novoEndereco.cep = '';
+}
+
+limparCamposCLiente(){
+  this.cliente.nome = '';
 }
 
 

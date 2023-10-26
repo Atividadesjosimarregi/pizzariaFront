@@ -1,17 +1,17 @@
-    <div class="pizzaDetailsClass">
-        <h1>Cadastre uma nova Pizza!! 🍕</h1>
-        <br>
-    
-    
-        <br>
-        <label for="sabores">Sabores:</label>
-    <select id="estoque" [(ngModel)]="produto.estoques" name="estoques">
-        <option *ngFor="let estoque of estoques" [value]="estoque">{{ estoque.nome }}</option>
+<div class="produtosDetailsClass"> 
+    <h1>Adicione um Produto ao Pedido!! 🧃</h1>
+    <br>
+    <br>
+    <label for="estoqueProd">Produtos:</label>
+    <select name="estoqueProd" id="estoqueProd" [(ngModel)]="produto.estoques.id">
+        <option value="" disabled selected>Escolha um Produto</option>
+        <option *ngFor="let estoqueProd of estoqueProdLista"  [value]="estoqueProd.id">{{estoqueProd.nome}}</option>
     </select>
-        <br>
-        <p>Digite a quantidade!</p>
-        <input type="number" name="quantidadeProduto" id="qtProduto" placeholder="Quantidade" [(ngModel)]="produto.quantidade">
-        <br>
-        <br>
-        <input type="button" value="Adicionar" class="btn btn-dark" id="inputBotao" (click)="salvar()" >
-    </div>
+    <br>
+    <br>
+    <p>Digite a quantidade do Produto a ser adicionada:</p>
+    <input type="number" name="quantidadeProd" id="qtProd" placeholder="Quantidade" [(ngModel)]="produto.quantidade">
+    <br>
+    <br>
+    <input type="button" value="Adicionar" class="btn btn-dark" id="inputBotao" (click)="salvar()" >
+</div>

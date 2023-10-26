@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
+import { EstoqueService } from 'src/Services/estoque.service';
 import { ProdutoService } from 'src/Services/produto.service';
 import { Estoque } from 'src/models/estoque';
 import { Produto } from 'src/models/produto';
@@ -10,60 +11,72 @@ import { Produto } from 'src/models/produto';
 })
 export class ProdutosdetailsComponent {
 
+ 
   @Input() produto: Produto = new Produto();
   @Output() retorno = new EventEmitter<Produto>();
 
-  estoques: Estoque[] = []; 
+  produtosService = inject(ProdutoService);
+  estoqueProdService = inject(EstoqueService);
   
-
-  produtoService = inject(ProdutoService);
+  estoqueProdLista: Estoque[] = [];
 
   constructor(){
-
-    this.produtoService.getAvailableEstoques().subscribe( estoques => {
-      this.estoques = estoques;
-    })
+  
   }
 
-  salvar() {
-    if (this.produto.id > 0) {
-      this.produtoService.edita(this.produto).subscribe({
-        next: pizza => {
+  salvar(){
+    console.log('Dados a serem enviados para o servidor:', {
+      estoqueProds: JSON.stringify(this.produto.estoques),
+      quantidadeprod: this.produto.quantidade
+    });
+
+    const estoquePRodSelecionado = this.estoqueProdLista.find(estoqueProd => estoqueProd.id === this.produto.estoques.id);
+
+    if(estoquePRodSelecionado){
+      this.produto.estoques = estoquePRodSelecionado;
+    }
+
+    if(this.produto.id > 0){
+      this.produtosService.edita(this.produto).subscribe({
+        next: produto => {
           this.retorno.emit(this.produto);
-          this.produto.id = 0;
+          alert('Produto Editado!!');
         },
         error: erro => {
           alert('Error!! verificar no console!!');
           console.error(erro);
         }
       });
-    } else {
-      this.produtoService.cadastra(this.produto).subscribe({
+    } else{
+      this.produtosService.cadastra(this.produto).subscribe({
         next: produto => {
           this.retorno.emit(produto);
-          console.log("deu bom");
+          alert('Produto Selecionado no Pedido!!');
         },
         error: erro => {
           alert('Erro!! verificar no console!!');
           console.error(erro);
         }
       });
-
     }
-
   }
 
+  ngOnInit() {
+    this.estoqueProdService.list().subscribe((estoqueProd: Estoque[]) => {
+      this.estoqueProdLista = estoqueProd;
+    })
+  }
 
   deletar(){
-    this.produtoService.deleta(this.produto.id).subscribe({
-      next: produto =>{
-          this.retorno.emit(produto);
+    this.produtosService.deleta(this.produto.id).subscribe({
+      next: produto => {
+        this.retorno.emit(produto);
       },
       error: erro => {
         alert('Exemplo de tratamento de erro/exception! Observe o erro no console!');
         console.error(erro);
       }
-    })
+    });
   }
 
 }
