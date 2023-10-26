@@ -22,6 +22,8 @@ import { ClienteslistComponent } from './cliente/clienteslist/clienteslist.compo
 import { ClientesdetailsComponent } from './cliente/clientesdetails/clientesdetails.component';
 import { PizzaslistComponent } from './pizza/pizzaslist/pizzaslist.component';
 import { PizzasdetailsComponent } from './pizza/pizzasdetails/pizzasdetails.component';
+import { PedidoslistComponent } from './pedido/pedidoslist/pedidoslist.component';
+import { PedidosdetailsComponent } from './pedido/pedidosdetails/pedidosdetails.component';
 
 
 @NgModule({
@@ -42,7 +44,9 @@ import { PizzasdetailsComponent } from './pizza/pizzasdetails/pizzasdetails.comp
     ClienteslistComponent,
     ClientesdetailsComponent,
     PizzaslistComponent,
-    PizzasdetailsComponent
+    PizzasdetailsComponent,
+    PedidoslistComponent,
+    PedidosdetailsComponent
   ],
   imports: [
     BrowserModule,

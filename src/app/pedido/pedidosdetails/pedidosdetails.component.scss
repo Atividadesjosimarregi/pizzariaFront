@@ -1,0 +1,95 @@
+/* Estilo para o container geral */
+.pizzaDetailsClass {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Estilo para o título */
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilo para os botões de cadastro de pizza e produto */
+  #botaoCadastro {
+    background-color: #008000; /* Cor verde como exemplo, escolha uma que combine com sua aplicação */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 10px;
+  }
+  
+  /* Estilo para os rótulos e campos de entrada */
+  label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  input[type="text"],
+  select,
+  input[type="checkbox"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 5px;
+  }
+  
+  /* Estilo para os botões Adicionar */
+  #inputBotao {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  /* Estilo para o modal */
+  .modal-header {
+    background-color: #FFA500;
+    color: #fff;
+    padding: 10px;
+  }
+  
+  .modal-title {
+    font-size: 24px;
+  }
+  
+  .modal-body {
+    padding: 20px;
+  }
+  
+  .modal-footer {
+    background-color: #FFA500;
+    padding: 10px;
+  }
+  
+  /* Estilo para o botão de fechar no modal */
+  .btn-close {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #fff;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+  }
+  
+  /* Estilo para o botão de fechar o modal */
+  .btn-light {
+    background-color: #fff;
+    color: #000;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  

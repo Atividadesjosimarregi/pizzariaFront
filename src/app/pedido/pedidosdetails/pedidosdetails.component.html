@@ -1,0 +1,66 @@
+<div class="pizzaDetailsClass">
+    <h1>Cadastre um novo pedido 🍕</h1>
+    <br>
+    <button id="botaoCadastro" (click)="abrirModal(abc)">Cadastrar Pizza</button>
+
+    <button id="botaoCadastro" (click)="abrirModal(abcd)">Cadastrar Produto</button>
+    <br>
+
+    <label for="username">Observacoes:</label>
+    <input type="text" id="observacoes" name="observacoes" placeholder="Observações" [(ngModel)]="pedido.observacoes">
+
+    <label for="cliente">Cliente:</label>
+    <select id="cliente" [(ngModel)]="pedido.cliente" name="cliente">
+        <option *ngFor="let cliente of clientes" [value]="cliente">{{ cliente.nome }}</option>
+    </select>
+
+    <label for="funcionario">Funcionario:</label>
+    <select id="funcionario" [(ngModel)]="pedido.funcionario" name="funcionario">
+        <option *ngFor="let funcionario of funcionarios" [value]="funcionario">{{ funcionario.nome }}</option>
+    </select>
+
+    <br>
+    <label for="delivery">Delivery</label>
+    <input id="delivery" type="checkbox" value="true" [(ngModel)]="pedido.delivery">
+    <br>
+
+    <br>
+    <label for="pagamentoCartao">Cartão de crédido</label>
+    <input id="pagamentoCartao" type="checkbox" value="true" [(ngModel)]="pedido.pagamentoCartao">
+    <br>
+
+    <input type="button" value="Adicionar" class="btn btn-dark" id="inputBotao" (click)="salvar()">
+</div>
+
+
+
+
+<ng-template #abc let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Cadastrar</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+
+        <app-pizzasdetails [pizza]="pizzaSelecionadoParaEdicao"
+            (retorno)="addOuEditarPizza($event)"></app-pizzasdetails>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Fechar</button>
+    </div>
+</ng-template>
+
+<ng-template #abcd let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Cadastrar</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+
+        <app-produtosdetails [produto]="produtoSelecionadoParaEdicao"
+            (retorno)="addOuEditarProduto($event)"></app-produtosdetails>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Fechar</button>
+    </div>
+</ng-template>

@@ -6,17 +6,17 @@ import { Funcionario } from "./funcionario";
 
 export class Pedido{
     id!:number;
-    observacoes!:string;
+    observacoes?:string;
     cliente!:Cliente;
-    preco!:number;
+    preco?:number;
     status!:Status;
-    pizza!:Pizza;
-    produto!:Produto;
-    entrega!:boolean;
+    pizzas?:Pizza;
+    produtos?:Produto;
+    entrega?:boolean;
     delivery!:boolean;
-    cancelado!:boolean;
-    pagamentoCartao!:boolean;
-    cadastro!:Date;
-    funcionario!:Funcionario;
+    cancelado?:boolean;
+    pagamentoCartao?:boolean;
+    cadastro?:Date;
+    funcionario?:Funcionario;
 
-}
+}   

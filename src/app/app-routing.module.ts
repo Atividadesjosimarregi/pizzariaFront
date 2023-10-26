@@ -9,6 +9,7 @@ import { ClientesdetailsComponent } from './cliente/clientesdetails/clientesdeta
 import { ClienteslistComponent } from './cliente/clienteslist/clienteslist.component';
 import { PizzasdetailsComponent } from './pizza/pizzasdetails/pizzasdetails.component';
 import { ProdutosdetailsComponent } from './produto/produtosdetails/produtosdetails.component';
+import { PedidosdetailsComponent } from './pedido/pedidosdetails/pedidosdetails.component';
 
 const routes: Routes = [
 
@@ -22,7 +23,8 @@ const routes: Routes = [
     {path: "estoque", component: EstoquelistComponent},
     {path: "cliente", component: ClienteslistComponent},
     {path: "pizza", component: PizzasdetailsComponent},
-    {path: "produto", component: ProdutosdetailsComponent}
+    {path: "produto", component: ProdutosdetailsComponent},
+    {path: "pedido", component: PedidosdetailsComponent }
 
   
 
