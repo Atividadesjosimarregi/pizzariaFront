@@ -1,8 +1,23 @@
-<div class="mainlogin">
-    <form class="login-form">
-      <input type="text" placeholder="Login" class="login-input" name="login" [(ngModel)]= "usuario.login">
-      <input type="password" placeholder="Senha" class="login-input" name="senha" [(ngModel)]= "usuario.senha">
-      <button class="login-button" (click)="logar()">Login</button>
-    </form>
+<div class="container">
+
+  <div class="row justify-content-center"> <!-- Adicionando 'justify-content-center' para centralizar horizontalmente -->
+
+      <div class="col-lg-4">
+          <form class="login-form" (ngSubmit)="logar()">
+              <div class="mb-3">
+                  <label for="exampleInputText1" class="form-label">Login:</label>
+                  <input type="text" class="form-control" name="exampleInputText1" aria-describedby="emailHelp"
+                      [(ngModel)]="login.username">
+              </div>
+              <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Senha:</label>
+                  <input type="password" class="form-control" name="exampleInputPassword1"
+                      [(ngModel)]="login.password">
+              </div>
+              <button type="submit" class="btn btn-primary">Logar</button>
+          </form>
+      </div>
+
   </div>
-  
+
+</div>

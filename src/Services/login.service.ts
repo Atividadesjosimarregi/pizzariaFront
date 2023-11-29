@@ -1,37 +1,59 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { Login } from '../models/login';
+import { User } from '../models/user';
 import { Observable } from 'rxjs';
-import { Login } from 'src/models/login';
+import {JwtPayload, jwtDecode} from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  API: string = 'http://localhost:8010/login';
+  API: string = 'http://localhost:8010/api/user';
+
   http = inject(HttpClient);
 
   constructor() { }
 
-  list(): Observable<Login[]> {
-    return this.http.get<Login[]>(this.API + '/lista');
+  logar(login: Login): Observable<User> {
+    return this.http.post<User>(this.API, login);
   }
 
-  cadastra(login: Login): Observable<Login> {
-    return this.http.post<Login>(this.API, login);
+  deslogar(): Observable<any> {
+    return this.http.get<any>(this.API+'/deslogar');
   }
 
-  exemploErro(): Observable<Login[]> {
-    return this.http.get<Login[]>(this.API + '/erro');
+  addToken(token: string){
+    localStorage.setItem('token', token);
   }
 
-  deleta(id: number): Observable<any> {
-    const url = `${this.API}/${id}`;
-    return this.http.delete(url);
+  removerToken(){
+    localStorage.removeItem('token');
   }
 
-  edita(login: Login): Observable<Login>{
-    return this.http.put<Login>(this.API, login);
+  getToken(){
+    return localStorage.getItem('token');
   }
 
+  hasPermission(roleToCheck:any) {
+    const userToken = this.getToken();
+
+    if (userToken) {
+      try {
+        const decodedToken = jwtDecode<JwtPayload>(userToken) as User;
+        if (decodedToken && decodedToken.role.includes(roleToCheck)) {
+          return true;
+        } else {
+          return false;
+        }
+      } catch (error) {
+        console.error('Erro ao decodificar o token:', error);
+        return false;
+      }
+    } else {
+      console.error('Token de usuário não encontrado');
+      return false;
+    }
+  }
 }

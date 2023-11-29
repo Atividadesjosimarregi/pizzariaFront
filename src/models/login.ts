@@ -1,7 +1,7 @@
 export class Login{
 
     id!:number;
-    login!:string;
-    senha!:string;
+    username!:string;
+    password!:string;
 
 }

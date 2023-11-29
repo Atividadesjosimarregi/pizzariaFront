@@ -6,9 +6,9 @@
     <nav>
         <ul>
             <li><a href="/admin/pedido">Pedidos</a></li>
-            <li><a href="/admin/funcionarios">Funcionários</a></li>
-            <li><a href="/admin/cliente">Clientes</a></li>
-            <li><a href="/admin/sabores">Sabores</a></li>
+            <li  *ngIf="isAdmin"><a href="/admin/funcionarios">Funcionários</a></li>
+            <li  *ngIf="isAdmin || isFuncionario"><a href="/admin/cliente">Clientes</a></li>
+            <li  *ngIf="isAdmin || isFuncionario"><a href="/admin/sabores">Sabores</a></li>
         </ul>
     </nav>
 </header>
