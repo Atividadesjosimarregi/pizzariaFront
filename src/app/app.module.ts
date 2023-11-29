@@ -24,6 +24,8 @@ import { PizzaslistComponent } from './pizza/pizzaslist/pizzaslist.component';
 import { PizzasdetailsComponent } from './pizza/pizzasdetails/pizzasdetails.component';
 import { PedidoslistComponent } from './pedido/pedidoslist/pedidoslist.component';
 import { PedidosdetailsComponent } from './pedido/pedidosdetails/pedidosdetails.component';
+import { httpInterceptorProviders } from './interceptors/httpinterceptor.service';
+
 
 
 @NgModule({
@@ -56,7 +58,9 @@ import { PedidosdetailsComponent } from './pedido/pedidosdetails/pedidosdetails.
     HttpClientModule
     
   ],
-  providers: [],
+  providers: [
+    httpInterceptorProviders
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
