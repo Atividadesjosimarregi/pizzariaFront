@@ -83,17 +83,7 @@ export class ClienteslistComponent {
     addOuEditarCliente(cliente: Cliente) {
   
       this.list();
-  
-      /*
-  
-      if (this.pessoaSelecionadaParaEdicao.id > 0) { //MODO EDITAR
-        this.lista[this.indiceSelecionadoParaEdicao] = pessoa;
-      } else {
-        pessoa.id = 99;
-        this.lista.push(pessoa);
-      }
-      */
-  
+
       this.modalService.dismissAll();
   
     }

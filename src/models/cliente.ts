@@ -6,13 +6,5 @@ export class Cliente{
     enderecos?:Endereco[] = [];
 
 
-    public setId(id: number){
-        this.id = id;
-    }
-    public setNome(nome: string){
-        this.nome = nome;
-    }
-    public setEndereco(enderecos: Endereco){
-        this.enderecos = this.enderecos;
-    }
+
 }

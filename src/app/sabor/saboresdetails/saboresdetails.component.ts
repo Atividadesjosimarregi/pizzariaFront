@@ -47,5 +47,17 @@ export class SaboresdetailsComponent {
 
   }
 
-  
-}
+  deletar(){
+    this.saborService.deleta(this.sabor.id).subscribe({
+      next: sabores => {
+        this.retorno.emit(sabores);
+      },
+      error: erro => {
+        alert('Exemplo de tratamento de erro/exception! Observe o erro no console!');
+        console.error(erro);
+      }
+    });
+
+
+
+  }}
