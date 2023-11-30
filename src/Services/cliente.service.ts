@@ -9,7 +9,7 @@ import { Endereco } from 'src/models/endereco';
   })
   export class ClienteService {
 
-    API: string = 'http://localhost:8010/cliente';
+    API: string = 'http://3.144.130.43:8010/cliente';
     http = inject(HttpClient);
 
     constructor() { }

@@ -10,7 +10,7 @@ import { SaborService } from './sabor.service';
 })
 export class PizzaService {
 
-  API: string = 'http://localhost:8010/pizza';
+  API: string = 'http://3.144.130.43:8010/pizza';
   http = inject(HttpClient);
 
   constructor(private saborService: SaborService) {}

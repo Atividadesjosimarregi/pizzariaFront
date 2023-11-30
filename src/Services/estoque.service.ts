@@ -8,7 +8,7 @@ import { Estoque } from 'src/models/estoque';
 })
 export class EstoqueService {
 
-  API: string = 'http://localhost:8010/estoque';
+  API: string = 'http://3.144.130.43:8010/estoque';
   http = inject(HttpClient);
 
   constructor() { }

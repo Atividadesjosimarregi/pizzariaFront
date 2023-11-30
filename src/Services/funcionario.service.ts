@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class FuncionarioService {
 
-  API: string = 'http://localhost:8010/funcionario';
+  API: string = 'http://3.144.130.43:8010/funcionario';
   http = inject(HttpClient);
 
   constructor() { }

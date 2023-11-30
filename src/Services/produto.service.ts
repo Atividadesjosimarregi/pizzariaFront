@@ -10,7 +10,7 @@ import { EstoqueService } from './estoque.service';
 })
 export class ProdutoService {
 
-  API: string = 'http://localhost:8010/produto';
+  API: string = 'http://3.144.130.43:8010/produto';
   http = inject(HttpClient);
 
   

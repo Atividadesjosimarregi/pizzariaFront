@@ -12,7 +12,7 @@ import { FuncionarioService } from './funcionario.service';
 })
 export class PedidoService {
 
-  API: string = 'http://localhost:8010/pedido';
+  API: string = 'http://3.144.130.43:8010/pedido';
   http = inject(HttpClient);
 
   constructor(private clienteService: ClienteService, private funcionarioService: FuncionarioService) { }
